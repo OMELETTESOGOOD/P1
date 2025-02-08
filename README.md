@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 # Replace with your bot token
-BOT_TOKEN = "8160397279:AAGFamNlUVlAnItdPiS_VKvAJExhtT7roTA"
+BOT_TOKEN = "TOKEN"
 
 # Store user data
 user_data = {}
