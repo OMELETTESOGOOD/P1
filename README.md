@@ -1,3 +1,4 @@
+
 # P1
 import asyncio
 from telegram import Update
@@ -44,9 +45,9 @@ async def store_details(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         f"Thank you, {details[0]}! 🙌\n"
         "Now, let’s get you started with our exclusive products:\n\n"
-        "1. Basic – 100 (Daily Limit: 500, Withdrawal Limit: 2,500)\n"
-        "2. Standard – 300 (Daily Limit: 1,000, Withdrawal Limit: 5,000)\n"
-        "3. Premium – 500 (Daily Limit: 2,000, Withdrawal Limit: 10,000)\n"
+        "1. Basic – 100 (DailY: 50 eggs, Limit: 250)\n"
+        "2. Standard – 300 (Daily: 100 kales, Limit: 500)\n"
+        "3. Premium – 500 (Daily: 200 eggs, Limit: 1000)\n"
         "4. Custom – Contact us for pricing.\n\n"
         "Reply with the number of the product you’d like to purchase."
     )
@@ -100,11 +101,11 @@ async def select_delivery(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     await update.message.reply_text(
         f"Perfect! 🚀\nYour order will be delivered via {delivery_methods[text]}.\n\n"
-        "To complete your order, please send $110 in BTC to the following wallet address:\n\n"
-        "📌 **bc1qkhk4mq56vrlhyp3rrxtlzkr8578a9ka9nhexlk**\n\n"
+        "To complete your order, please send KSH110 to the following address:\n\n"
+        "📌 **ADDRESS**\n\n"
         "This includes:\n"
-        "✅ $100 for the product.\n"
-        "✅ $10 for delivery.\n\n"
+        "✅ KSH100 for the product.\n"
+        "✅ KSH10 for delivery.\n\n"
         "Once payment is confirmed, reply with 'PAID'."
     )
 
@@ -114,7 +115,7 @@ async def confirm_payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.strip().lower()
     
     if text == "paid":
-        admin_id = "6657763025"  # Replace with actual admin ID
+        admin_id = "ADMN_ID"  # Replace with actual admin ID
         await context.bot.send_message(
             admin_id, f"Payment received from {user_data[user_id]['name']}.\nOrder details:\n"
                       f"📦 Product: {user_data[user_id]['product']}\n"
@@ -125,7 +126,7 @@ async def confirm_payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
         
         await update.message.reply_text(
-            f"Thank you, {user_data[user_id]['name']}! 💳\n"
+            f"Thank you, {user_data[user_id]['name']}! \n"
             "We have received your payment and are processing your order. 🚀\n\n"
             "You’ll receive:\n"
             "📧 A confirmation email shortly.\n"
@@ -153,8 +154,7 @@ async def main():
 
     print("Bot is running...")
 
-    # Run the bot without asyncio.run() issue
+    
     if __name__ == "__main__":
         loop = asyncio.get_event_loop()
         loop.run_until_complete(app.run_polling())
-
